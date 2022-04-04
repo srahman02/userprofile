@@ -3,6 +3,7 @@ package com.sojibur.userprofileinner.excption
 import com.sojibur.userprofileinner.exception.ApiError
 import com.sojibur.userprofileinner.exception.GlobalExceptionHandler
 import com.sojibur.userprofileinner.exception.InternalServerException
+
 import com.sojibur.userprofileinner.exception.UserNotFoundException
 import org.springframework.http.HttpStatus
 import org.springframework.http.ResponseEntity
@@ -62,6 +63,5 @@ class GlobalExceptionHandlerSpec extends Specification{
         then:
         responseEntity.getStatusCode() == HttpStatus.INTERNAL_SERVER_ERROR
         responseEntity.getBody().errors[0].message == expectedMessage
-
     }
 }

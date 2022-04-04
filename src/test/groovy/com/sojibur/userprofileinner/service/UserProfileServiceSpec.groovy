@@ -20,7 +20,8 @@ class UserProfileServiceSpec extends Specification{
 
     def "should return a list of user if the call to the repository findAll() method is successful"(){
         given:
-        def mockUser = [firstName: "John",
+        def mockUser = [id:"0000",
+                        firstName: "John",
                         lastName: "Doe",
                         email:"John.Doe@email.com",
                         address:[street:"123 main st", city:"Utopia"] as Address,
@@ -46,7 +47,8 @@ class UserProfileServiceSpec extends Specification{
 
     def "should return created user if the call to the repository save() method is successful"(){
         given:
-        def mockUser = [firstName: "John",
+        def mockUser = [id:"0000",
+                        firstName: "John",
                         lastName: "Doe",
                         email:"John.Doe@email.com",
                         address:[street:"123 main st", city:"Utopia"] as Address,
@@ -63,7 +65,7 @@ class UserProfileServiceSpec extends Specification{
 
     def "should throw InternalServerException if the call to the repository save() method is unsuccessful"(){
         given:
-        def mockUser = [
+        def mockUser = [id:"0000",
                         firstName: "John",
                         lastName: "Doe",
                         email:"John.Doe@email.com",
@@ -83,7 +85,8 @@ class UserProfileServiceSpec extends Specification{
     def "should return a user if the call to the repository findById() method is successful"(){
         given:
         def mockUserId = "0000"
-        def mockUser = [firstName: "John",
+        def mockUser = [id:mockUserId,
+                        firstName: "John",
                         lastName: "Doe",
                         email:"John.Doe@email.com",
                         address:[street:"123 main st", city:"Utopia"] as Address,
@@ -113,7 +116,8 @@ class UserProfileServiceSpec extends Specification{
     def "should call repository delete method if the user is found"(){
         given:
         def mockUserId = "0000"
-        def mockUser = [firstName: "John",
+        def mockUser = [id:mockUserId,
+                        firstName: "John",
                         lastName: "Doe",
                         email:"John.Doe@email.com",
                         address:[street:"123 main st", city:"Utopia"] as Address,
@@ -143,14 +147,14 @@ class UserProfileServiceSpec extends Specification{
     def "should return updated user if the update is successful"(){
         given:
         def mockUserId = "0000"
-        def mockUser = [
+        def mockUser = [id:mockUserId,
                         firstName: "John",
                         lastName: "Doe",
                         email:"John.Doe@email.com",
                         address:[street:"123 main st", city:"Utopia"] as Address,
                         hobbies:["hobby1"],
                         regions:["us-east-1"]] as User
-        def mockSavedUser = [
+        def mockSavedUser = [id:mockUserId,
                              firstName: "Jane",
                              lastName: "Doe",
                              email:"Jane.Doe@email.com",
@@ -171,7 +175,8 @@ class UserProfileServiceSpec extends Specification{
         given:
         def mockUserId = "0000"
 
-        def mockUser = [firstName: "John",
+        def mockUser = [id:mockUserId,
+                        firstName: "John",
                         lastName: "Doe",
                         email:"John.Doe@email.com",
                         address:[street:"123 main st", city:"Utopia"] as Address,

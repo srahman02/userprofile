@@ -74,7 +74,7 @@ class UserProfileControllerSpec extends Specification{
 
     def "should return user when a POST call to /api/users is successful"() {
         given:
-        def mockUser = [userId:"1234",
+        def mockUser = [id:"1234",
                         firstName: "John",
                         lastName: "Doe",
                         email:"John.Doe@email.com",
@@ -98,7 +98,7 @@ class UserProfileControllerSpec extends Specification{
 
     def "should throw InternalServerException if a POST call to /api/users fails"() {
         given:
-        def mockUser = [userId:"1234",
+        def mockUser = [id:"1234",
                         firstName: "John",
                         lastName: "Doe",
                         email:"John.Doe@email.com",
@@ -124,7 +124,7 @@ class UserProfileControllerSpec extends Specification{
     def "should return a user when a GET call to /api/users with an id is successful"() {
         given:
         def mockUserId ="0000"
-        def mockUser = [userId:"1234",
+        def mockUser = [id:"1234",
                         firstName: "John",
                         lastName: "Doe",
                         email:"John.Doe@email.com",
@@ -196,7 +196,7 @@ class UserProfileControllerSpec extends Specification{
     def "should return updated user when a PUT call to /api/users with an id is successful"() {
         given:
         def mockUserId = "0000"
-        def mockUser = [userId:"1234",
+        def mockUser = [id:"1234",
                         firstName: "John",
                         lastName: "Doe",
                         email:"John.Doe@email.com",
@@ -221,7 +221,7 @@ class UserProfileControllerSpec extends Specification{
     def "should throw UserNotFoundException when a PUT call to /api/users with an id fails"() {
         given:
         def mockUserId = "0000"
-        def mockUser = [userId:"1234",
+        def mockUser = [id:"1234",
                         firstName: "John",
                         lastName: "Doe",
                         email:"John.Doe@email.com",
