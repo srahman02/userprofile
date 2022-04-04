@@ -4,9 +4,7 @@ import com.fasterxml.jackson.databind.ObjectMapper
 import com.sojibur.userprofile.exception.ApiError
 import com.sojibur.userprofile.exception.GlobalExceptionHandler
 import com.sojibur.userprofile.exception.TipsNotFoundException
-import com.sojibur.userprofile.model.Address
 import com.sojibur.userprofile.model.HealthTips
-import com.sojibur.userprofile.model.User
 import com.sojibur.userprofile.service.HealthTipsService
 import org.springframework.http.HttpStatus
 import org.springframework.test.web.servlet.MockMvc

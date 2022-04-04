@@ -2,7 +2,6 @@ package com.sojibur.userprofile.client
 
 import com.sojibur.userprofile.client.impl.HealthTipsClientImpl
 import com.sojibur.userprofile.model.HealthTips
-import org.springframework.http.ResponseEntity
 import org.springframework.web.client.RestTemplate
 import spock.lang.Specification
 
@@ -23,13 +22,12 @@ class HealthTipsClientSpec extends Specification{
         tips.add("Drink More Water")
         def mockTips = [id:mockId, tips:tips] as HealthTips
         def url = "http://localhost:8081/api/tips/"+mockId
-        def mockResponseEntity = ResponseEntity.ok().body(mockTips)
 
         when:
         HealthTips actualTips = healthTipsClient.getHealthTipsById(mockId)
 
         then:
-        1 * mockRestTemplate.getForEntity(url, HealthTips.class) >> mockResponseEntity
+        1 * mockRestTemplate.getForObject(url, HealthTips.class) >> mockTips
         actualTips == mockTips
     }
 }

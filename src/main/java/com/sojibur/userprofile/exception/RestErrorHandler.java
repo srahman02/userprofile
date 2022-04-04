@@ -12,10 +12,9 @@ public class RestErrorHandler extends DefaultResponseErrorHandler {
         HttpStatus statusCode = response.getStatusCode();
         if(statusCode.series() == HttpStatus.Series.SERVER_ERROR){
             throw new InternalServerException("INTERNAL_SERVER_ERROR");
-        } else if(statusCode.series() == HttpStatus.Series.CLIENT_ERROR){
-            if(statusCode == HttpStatus.NOT_FOUND){
-                throw new TipsNotFoundException("TIPS_NOT_FOUND_FOR_THE_GIVEN_ID");
+        } else if(statusCode == HttpStatus.NOT_FOUND){
+            throw new TipsNotFoundException("TIPS_NOT_FOUND_FOR_THE_GIVEN_ID");
             }
+        throw new InternalServerException("INTERNAL_SERVER_ERROR");
         }
-    }
 }

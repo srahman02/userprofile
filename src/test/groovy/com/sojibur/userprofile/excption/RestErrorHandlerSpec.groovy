@@ -26,5 +26,7 @@ class RestErrorHandlerSpec extends Specification{
         response                                                                  | exception
         new MockClientHttpResponse(new byte[0], HttpStatus.INTERNAL_SERVER_ERROR) | InternalServerException
         new MockClientHttpResponse(new byte[0], HttpStatus.NOT_FOUND)             | TipsNotFoundException
+        new MockClientHttpResponse(new byte[0], HttpStatus.BAD_REQUEST)           | InternalServerException
+
     }
 }
